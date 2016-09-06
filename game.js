@@ -29,8 +29,7 @@ function update() {
     if (Math.abs(distance > 70)) {
       distance = distance - (25 * COUNTERMULTIPLIER);
     }
-  }
-  else if (keys[39]) {
+  } else if (keys[39]) {
     if (Math.abs(distance < 225)) {
       distance = distance + (25 * COUNTERMULTIPLIER);
     }
@@ -41,9 +40,6 @@ function update() {
 
   ctx.clearRect(-250, -250, 500, 500);
 
-  // Crosshairs
-  // ctx.fillRect(0, -250, 1, 500);
-  // ctx.fillRect(-250, 0, 500, 1);
   ctx.beginPath();
   ctx.arc(0, 0, 25, 0, 2 * Math.PI);
   ctx.fill();
@@ -73,8 +69,7 @@ function update() {
   if (distanceFromObstacle < 25 + obstacleSize) {
     isRunning = false;
     deathMessage();
-  }
-  else {
+  } else {
     counter += COUNTERMULTIPLIER;
     requestAnimationFrame(update);
   }
@@ -101,39 +96,6 @@ function reset() {
   score = 0;
   update();
 }
-
-// window.addEventListener("keypress", function (event) {
-//   if (event.defaultPrevented) {
-//     return;
-//   }
-//
-//   switch (event.key) {
-//   case "ArrowLeft":
-//     if (Math.abs(distance > 70)) {
-//       distance -= 1.5;
-//     }
-//     break;
-//   case "ArrowRight":
-//     if (Math.abs(distance < 225)) {
-//       distance += 1.5;
-//     }
-//     break;
-//   case " ":
-//     if (!isRunning) {
-//       console.log("reset");
-//       reset();
-//     }
-//     break;
-//   default:
-//     console.log("Unknown key: " + event.key);
-//     return;
-//   }
-//
-//
-//   event.preventDefault();
-// }, true);
-
-
 
 window.addEventListener("keypress", function (event) {
   if (event.defaultPrevented) {
